@@ -64,7 +64,6 @@
         class="new-name"
         type="text"
         placeholder="Add a new one"
-        autofocus
         maxLength=20>
     </form>
   </div>
