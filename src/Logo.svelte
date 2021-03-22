@@ -1,13 +1,13 @@
 <script>
-  function newLoad () {
-    window.location.reload();
-  }
+    function newLoad() {
+        window.location.reload();
+    }
 </script>
 
 <a href="/#" on:click={newLoad}>
-  <div class="logo">
+    <div class="logo">
     <span>W<span>{'🐳'}</span><span class="opacity-50">h</span><span>l</span>
-  </div>
+    </div>
 </a>
 <style>
   .logo {
@@ -17,6 +17,7 @@
     font-size: 45px;
     font-family: 'Bowlby One', cursive;
   }
+
   a {
     color: white;
     text-decoration: none;
