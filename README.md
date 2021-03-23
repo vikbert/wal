@@ -1,29 +1,46 @@
 <div align="center">
-  <img src="docs/svelte.svg" width="80px" alt="pixss" />
-  <h3>SESTS </h3>
-  <p>A boilerplate project for Svelte Jest TypeScript </p>
+  <img src="./public/images/logo.png" width="200" alt="wal" />
+  <h3>Wahl: a minimal randomizer for scrum daily standup</h3>
   <p>
     <a href="#">
       <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
     </a>
     <a href="#">
+      <img src="https://img.shields.io/badge/Powered-svelte.js-red.svg?style=flat-square" alt="PRs Welcome">
+    </a>
+    <a href="#">
       <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square" alt="MIT License">
+    </a>
+    <a href="https://github.com/vikbert/sests">
+      <img src="https://img.shields.io/badge/Template-vikbert/sests-red.svg?style=flat-square" alt="svelte template">
     </a>
   </p>
 </div>
 
 ---
 
-### Svelte + TypeScript + Jest
+# 🐳 What ist Wa(h)l?
 
-This is a project template for [Svelte](https://svelte.dev) apps. It's based on the official one from https://github.com/sveltejs/template.
+Wa(h)l is a german word(engl: decision).
+> DUDEN: Möglichkeit der Entscheidung; das Sichtentscheiden
 
-This one has been pre-setup with TypeScript and Jest testing support.
+If we remove this character "h", and it becomes another word "engl: whale" that is the most favorite animal of my son.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+The two words have almost the same pronunciation in German. At least, it sounds similar to me who speak German as the seconds foreign language. 😀
 
 
-### Getting started
+# ✨ Background
+I build this application in the context of [#100DaysOfCode](https://www.100daysofcode.com/).
+
+The idea of this application is inspired by someone's kindly suggestion during the scrum daily meeting, as we didn't know who is going to talk as next.
+
+# ✅ Feature of app
+- randomize the participants 
+- text to speech
+- a timer for the meeting: default 15" for a normal daily standup
+- manage the participants for the meeting
+
+# 🚀 Getting started
 ```bash
 npx degit vikbert/sests svelte-app
 cd svelte-app
@@ -40,5 +57,6 @@ npm run dev
 npm run test 
 ```
 
+# licence
 
-
+MIT [@vikbert](https://vikbert.github.io/)
