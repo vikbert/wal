@@ -69,7 +69,7 @@
         <div class={classNames("widget-body grid-container", {"exceeded": time >= timerMax})}>
             <div class="item item_day">21</div>
             <div class="item item_week">Do</div>
-            <div class="item_timer opacity-50">
+            <div class="item_timer">
                 {minutes.toHHMMSS()}
             </div>
             <div class={classNames({"item item_play": true, 'active': isPaused})} on:click={handleStart}>
@@ -114,7 +114,7 @@
   }
 
   .item {
-    opacity: 30%;
+    opacity: 40%;
   }
 
   .item_day {
@@ -152,7 +152,7 @@
   }
 
   .active {
-    opacity: 75%;
+    opacity: 100%;
     transition: all .8s;
   }
 
@@ -162,6 +162,6 @@
 
   .exceeded {
     background-color: red;
-    opacity: 75%;
+    color: white;
   }
 </style>
