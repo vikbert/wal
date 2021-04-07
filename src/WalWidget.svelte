@@ -1,12 +1,16 @@
 <script lang="ts">
     import classNames from 'classnames'
     import {shuffle} from './services/array'
-    import {paused, members} from "./services/store";
+    import {paused, members, opened} from "./services/store";
     import speak from './services/voice';
 
     let done: string[] = []
-    let show: boolean = true;
     let current: string = '⇡'
+
+    let popupOpened: boolean;
+    opened.subscribe((value) => {
+        popupOpened = value
+    })
 
     let names: string[];
     members.subscribe((value) => {
@@ -33,11 +37,11 @@
         // activate the timer
         paused.set(false);
 
-        show = false
+        popupOpened = false
         current = getRandomMember(names)
         speak(current)
         setTimeout(() => {
-            show = true
+            popupOpened = true
             names = shuffle(names.filter((item, index) => item !== current))
         }, 1000);
     }
@@ -49,7 +53,7 @@
     }
 </script>
 
-<div class="wrapper">
+<div class="wrapper" style="display: {popupOpened ? 'none' : 'block'}">
     <div class="wal_widget">
         <div class="widget">
             <div class="widget-head" on:click={handleRandom}>
@@ -57,7 +61,7 @@
             </div>
 
             <div class="widget-body">
-                {#if show}
+                {#if popupOpened}
                     <div class="title tracking-in-expand">
                         <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
                     </div>
@@ -68,7 +72,7 @@
         </div>
 
         <div class={"widget_dropdown"}>
-            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
+            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !popupOpened})} src="images/clip-2.png" alt="clip">
 
             {#each names as item}
                 <div class="widget_dropdown_item">{item}</div>
