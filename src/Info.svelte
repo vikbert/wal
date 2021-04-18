@@ -16,10 +16,4 @@
   h2 {
     margin: 0;
   }
-  p {
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-    padding: 4px 0;
-    margin: 0;
-  }
 </style>
