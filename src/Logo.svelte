@@ -1,9 +1,10 @@
 <div class="logo">
-  <span>Wa<span class="opacity-25">h</span><span>l</span><span class="heartbeat">{'🐳'}</span>
+  <span>W<span>{'🐳'}</span><span>hl</span>
 </div>
 <style>
-  .logo span {
+  .logo {
     font-size: 90px;
     font-family: 'Bowlby One', cursive;
+    margin-top: 20px;
   }
 </style>

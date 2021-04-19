@@ -1,9 +1,10 @@
 <script lang="ts">
-  import Loading from './Loading.svelte'
-  let names: string[] = ['Joe', 'Müller', 'Hans', ]
+import Setting from "./Setting.svelte";
+
+  let names: string[] = ['Della Sutton', 'Müller', 'Hans', 'SoonAe Ji' ]
   let done: string[] = []
   let show: boolean = true;
-  let current: string = 'Hello'
+  let current: string = '......'
   const getRandomMember = (items: string[]): string => {
       if (names.length === 0) {
           return;
@@ -36,17 +37,15 @@
   <div class="carousel">
       <div class="carousel__item">
           <div class="carousel__item-head" on:click={handleRandom}>
-            <span class="heartbeat">{'🐳'}</span>
+            <span class="iconify" data-icon="carbon:study-next" width=40></span>
           </div>
+
           <div class="carousel__item-body">
               {#if show}
                 <span class="title tracking-in-expand">{current ?? 'Nobody there!'}</span>
               {:else}
-                  <Loading/>
+                {'thinking ...'}
               {/if}
-              <div on:click={handleReset} class="next-user">
-                <span class="iconify" data-icon="carbon:power" width=40></span>
-              </div>
           </div>
       </div>
 
@@ -59,6 +58,19 @@
       </div>
   </div>
 </div>
+
+<div on:click={handleReset} class="dock dock-reset opacity-25">
+  <span class="iconify" data-icon="carbon:power" width=40></span>
+</div>
+<div on:click={() => null} class="dock dock-setting opacity-25">
+  <span
+    class="iconify"
+    data-icon="carbon:settings-adjust"
+    width=40
+    on:click={() => null}
+  />
+</div>
+<Setting/>
 
 <style>
   .wrapper {
@@ -76,24 +88,21 @@
   }
 
   .carousel_items-pool {
-    position: absolute;
-    width: 320px;
+    width: 380px;
     padding: 0 16px 0 32px;
-    top: 62px;
-    left: 112px;
-    background-color: white;
+    margin-left: 57px;
+    margin-bottom: 20px;
     z-index: 5;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     opacity: 75%;
+    background-color: white;
     color: #4a4c4c;
   }
 
   .carousel__item {
     display: flex;
-    align-items: center;
-    position: absolute;
-    width: 100%;
+    flex-direction: column;
     padding: 0 12px;
   }
 
@@ -101,56 +110,39 @@
     z-index: 100;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #d7f7fc;
+    background-color: #fff;
     width: 90px;
     height: 90px;
-    padding: 14px;
-    position: relative;
-    margin-right: -45px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px 16px 16px 27px;
+    margin: 0 auto;
+    margin-bottom: -35px;
     font-size: 50px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    transition: all 0.2s;
+    transition: all 1.5s;
+    color: #c0bcbcf1;
+    box-shadow: 10px 1px 28px rgba(0,0,0,0.01), 0 10px 10px rgba(0,0,0,0.08);
   }
   .carousel__item-head:hover {
-    transform: scale(1.2);
+    color: #000;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
-
   .carousel__item-body {
-    /* font-family: 'Coda Caption', sans-serif; */
     font-family: 'Lobster', cursive;
+    font-size: 40px;
+    color: #4e4e50;
+    text-align: center;
     z-index: 10;
-    width: 100%;
     height: 125px;
     background-color: #fff;
     border-radius: 8px;
-    padding: 16px 20px 16px 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 40px 20px 20px 20px;
     -webkit-box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
     -moz-box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
     box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
   }
-
-  .title {
-    font-size: 40px;
-    margin: 0;
-    padding: 10px 0 10px 15px;
-    color: #4e4e50;
+  .dock-reset {
+    top: 20px;
   }
-
-  .next-user {
-    position: absolute;
-    right: 30px;
-    cursor: pointer;
-    opacity: 30%;
-  }
-  .next-user:hover {
-    opacity: 100%;
+  .dock-setting {
+    top: 100px;
   }
 </style>
