@@ -1,38 +1,52 @@
-<script>
-  export let show = false;
-  export let close = () => null;
-  const items = [
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-    {name: 'Thomas Müller'},
-  ];
+<script lang="ts">
+  import {opened} from './services/store'
+  import {members} from './services/store'
+
+  let items;
+  let newName = '';
+  members.subscribe((values) => {
+    items = values;
+  });
+
+  let show: boolean;
+  opened.subscribe((value) => {
+    show = value;
+  });
+
+  const closeSetting = () => {
+    opened.set(false);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    members.set([{name: newName, checked: true}, ...items]);
+    newName = '';
+  }
 
 </script>
 
-<div class="setting">
-  <div class="dock dock-close opacity-50">
-    <span class="iconify" data-icon="codicon:chrome-close" width=35></span>
+{#if show}
+<div class={show ? "setting scale-in-ver-center" : "setting scale-out-hor-right"}>
+  <div class="dock dock-close opacity-50" on:click={closeSetting}>
+    <span
+      class="iconify"
+      data-icon="codicon:chrome-close"
+      width='40'/>
   </div>
   <div class="header">
-    <input class="new-name" type="text" placeholder="Enter a new name" maxLength=20>
+    <form on:submit={handleSubmit}>
+      <input
+        bind:value={newName}
+        class="new-name"
+        type="text"
+        placeholder="Enter a new name" maxLength=20>
+    </form>
   </div>
   <div class="content">
     {#each items as item}
       <div class="item">
         <div class="item-text">
-          <span>{item.name}</span>
+          <span>{item && item.name}</span>
         </div>
         <div class="item-checkmark">
           <span class="iconify" data-icon="carbon:checkmark" data-inline="false"></span>
@@ -41,6 +55,8 @@
     {/each}
   </div>
 </div>
+{/if}
+
 <style>
   .setting {
     z-index: 200;
@@ -51,9 +67,10 @@
     display: grid;
     grid-template-rows: 80px 1fr;
     opacity:95%;
+    transition: all 0.8s;
   }
   .dock-close {
-    margin: 10px 10px 0 0;
+    top: 20px;
   }
   .header {
     display: grid;
@@ -69,6 +86,9 @@
     color: rgba(255, 255, 255, 0.829);
     padding: 0 10px;
     border-bottom: 1px dotted rgba(255, 255, 255, 0.829);
+  }
+  input:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.829);;
   }
   ::-webkit-input-placeholder { /* Edge */
     color: rgba(255, 255, 255, 0.166);
@@ -98,7 +118,7 @@
     margin: 8px;
     font-size: 30px;
     color: white;
-    font-family: 'Lobster', cursive;
+    /* font-family: 'Lobster', cursive; */
     border-radius: 16px;
     border: 1px solid  rgba(255, 255, 0, 0.18);
   }

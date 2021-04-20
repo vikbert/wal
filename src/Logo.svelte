@@ -5,6 +5,6 @@
   .logo {
     font-size: 90px;
     font-family: 'Bowlby One', cursive;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 </style>

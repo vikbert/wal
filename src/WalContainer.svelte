@@ -1,10 +1,17 @@
 <script lang="ts">
+import { opened } from "./services/store";
+import { members } from "./services/store";
+
 import Setting from "./Setting.svelte";
 
-  let names: string[] = ['Della Sutton', 'Müller', 'Hans', 'SoonAe Ji' ]
-  let done: string[] = []
-  let show: boolean = true;
-  let current: string = '......'
+let done: string[] = []
+let show: boolean = true;
+let current: string = '......'
+
+let names: string[];
+members.subscribe((values) => {
+  names = values.map((item) => item.name);
+})
   const getRandomMember = (items: string[]): string => {
       if (names.length === 0) {
           return;
@@ -30,6 +37,10 @@ import Setting from "./Setting.svelte";
     if (window.confirm("🐳 Do you really want to restart?")) {
       window.location.reload();
     }
+  }
+
+  const openSetting = () => {
+    opened.set(true);
   }
 </script>
 
@@ -59,17 +70,10 @@ import Setting from "./Setting.svelte";
   </div>
 </div>
 
-<div on:click={handleReset} class="dock dock-reset opacity-25">
-  <span class="iconify" data-icon="carbon:power" width=40></span>
+<div on:click={openSetting} class="dock dock-setting opacity-25">
+  <span class="iconify" data-icon="carbon:settings-adjust" width='40' />
 </div>
-<div on:click={() => null} class="dock dock-setting opacity-25">
-  <span
-    class="iconify"
-    data-icon="carbon:settings-adjust"
-    width=40
-    on:click={() => null}
-  />
-</div>
+
 <Setting/>
 
 <style>
@@ -139,10 +143,7 @@ import Setting from "./Setting.svelte";
     -moz-box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
     box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
   }
-  .dock-reset {
-    top: 20px;
-  }
   .dock-setting {
-    top: 100px;
+    top: 20px;
   }
 </style>
