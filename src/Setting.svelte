@@ -2,7 +2,8 @@
   import {opened} from './services/store'
   import {members} from './services/store'
 
-  let items;
+  let items= [];
+
   let newName = '';
   members.subscribe((values) => {
     items = values;
@@ -13,14 +14,20 @@
     show = value;
   });
 
-  const closeSetting = () => {
+  function closeSetting () {
     opened.set(false);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    members.set([{name: newName, checked: true}, ...items]);
+    const updatedItems = [{name: newName, checked: true}, ...items]
+    members.set(updatedItems)
+    members.persistent(updatedItems)
     newName = '';
+  }
+
+  function toggleItem () {
+
   }
 
 </script>
@@ -44,7 +51,7 @@
   </div>
   <div class="content">
     {#each items as item}
-      <div class="item">
+      <div class="item" on:click={toggleItem}>
         <div class="item-text">
           <span>{item && item.name}</span>
         </div>
@@ -118,13 +125,12 @@
     margin: 8px;
     font-size: 30px;
     color: white;
-    /* font-family: 'Lobster', cursive; */
     border-radius: 16px;
     border: 1px solid  rgba(255, 255, 0, 0.18);
   }
   .item:hover {
     color: #0f2735;
-    background-color:rgba(231, 231, 173, 0.865);
+    background-color:rgba(224, 224, 215, 0.865);
     opacity: 50%;
   }
   .item:hover > .item-checkmark {
