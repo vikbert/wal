@@ -1,4 +1,6 @@
 <script lang="ts">
+import classNames from 'classnames'
+import {shuffle} from './services/array'
 import { opened } from "./services/store";
 import { members } from "./services/store";
 
@@ -6,11 +8,11 @@ import Setting from "./Setting.svelte";
 
 let done: string[] = []
 let show: boolean = true;
-let current: string = '......'
+let current: string = '⇡'
 
 let names: string[];
 members.subscribe((values) => {
-  names = values.map((item) => item.name);
+  names = values.filter((item) => item.checked).map((item) => item.name);
 })
   const getRandomMember = (items: string[]): string => {
       if (names.length === 0) {
@@ -25,12 +27,16 @@ members.subscribe((values) => {
   }
 
   const handleRandom = () => {
-      show = false
-      current = getRandomMember(names)
-      setTimeout(() => {
-        show = true
-        names = names.filter((item, index) => item !== current)
-      }, 1000);
+    if (0 === names.length) {
+      handleReset();
+    }
+
+    show = false
+    current = getRandomMember(names)
+    setTimeout(() => {
+      show = true
+      names = shuffle(names.filter((item, index) => item !== current))
+    }, 1000);
   }
 
   const handleReset = () => {
@@ -53,19 +59,22 @@ members.subscribe((values) => {
 
           <div class="carousel__item-body">
               {#if show}
-                <span class="title tracking-in-expand">{current ?? 'Nobody there!'}</span>
+                <div class="title tracking-in-expand">
+                  <div>{names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
+                </div>
               {:else}
-                {'thinking ...'}
+                {'... shuffling ...'}
               {/if}
           </div>
       </div>
 
       <div class={"carousel_items-pool"}>
+        <img class={classNames({"carousel_items_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
+
         {#each names as item}
-          <p>
-              <span class="name">{item}</span>
-          </p>
+        <div class="carousel_items-pool_name">{item}</div>
         {/each}
+
       </div>
   </div>
 </div>
@@ -79,7 +88,7 @@ members.subscribe((values) => {
 <style>
   .wrapper {
     position: inherit;
-    margin-top: 80px;
+    margin-top: 30px;
   }
   .carousel {
     position: relative;
@@ -90,10 +99,12 @@ members.subscribe((values) => {
     justify-content: center;
     flex-direction: column;
   }
-
   .carousel_items-pool {
+    position: relative;
     width: 380px;
-    padding: 0 16px 0 32px;
+    height: 380px;
+    overflow: scroll;
+    padding: 16px 16px 0 32px;
     margin-left: 57px;
     margin-bottom: 20px;
     z-index: 5;
@@ -102,8 +113,22 @@ members.subscribe((values) => {
     opacity: 75%;
     background-color: white;
     color: #4a4c4c;
-  }
 
+  }
+  .carousel_items-pool_name {
+    border-bottom: 1px dotted #dedede;
+    padding: 8px 0;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+  }
+  .carousel_items_clip {
+    position: absolute;
+    width: 200px;
+    right: -94px;
+    bottom: 45px;
+  }
   .carousel__item {
     display: flex;
     flex-direction: column;

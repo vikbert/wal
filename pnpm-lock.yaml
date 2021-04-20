@@ -10,12 +10,12 @@ specifiers:
   '@tsconfig/svelte': ^1.0.0
   '@types/jest': ^26.0.14
   babel-jest: ^26.5.2
+  classnames: ^2.3.1
   jest: ^26.5.2
   rollup: ^2.3.4
   rollup-plugin-livereload: ^2.0.0
   rollup-plugin-svelte: ^6.0.0
   rollup-plugin-terser: ^7.0.0
-  scache: ^1.0.1
   sirv-cli: ^1.0.0
   svelte: ^3.0.0
   svelte-check: ^1.0.0
@@ -38,12 +38,12 @@ devDependencies:
   '@tsconfig/svelte': 1.0.10
   '@types/jest': 26.0.22
   babel-jest: 26.6.3
+  classnames: 2.3.1
   jest: 26.6.3
   rollup: 2.45.2
   rollup-plugin-livereload: 2.0.0
   rollup-plugin-svelte: 6.1.1_rollup@2.45.2+svelte@3.37.0
   rollup-plugin-terser: 7.0.2_rollup@2.45.2
-  scache: 1.0.1
   svelte: 3.37.0
   svelte-check: 1.4.0_svelte@3.37.0
   svelte-jester: 1.4.0_svelte@3.37.0
@@ -2075,6 +2075,10 @@ packages:
       define-property: 0.2.5
       isobject: 3.0.1
       static-extend: 0.1.2
+    dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha1-38+jiR4wbsHa0QXQ6I9EF7hTXo4=}
     dev: true
 
   /cliui/6.0.0:
@@ -4482,10 +4486,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       xmlchars: 2.2.0
-    dev: true
-
-  /scache/1.0.1:
-    resolution: {integrity: sha1-czHd8lMVHqoNjzmEQaLSwLen+0A=}
     dev: true
 
   /semiver/1.1.0:
