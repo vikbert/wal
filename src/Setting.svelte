@@ -58,7 +58,6 @@
   </div>
   <div class="header">
     <form on:submit={handleSubmit}>
-      <span class="iconify" data-icon="clarity:add-line" width=20></span>
       <input
         bind:value={newName}
         class="new-name"
@@ -116,7 +115,7 @@
   input {
     line-height: 50px;
     font-size: 30px;
-    width: 780px;
+
     background: transparent;
     border: none;
     outline: none;

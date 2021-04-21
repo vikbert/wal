@@ -6,7 +6,7 @@
 
 <a href="/#" on:click={newLoad}>
   <div class="logo">
-    <span>W<span>{'🐳'}</span><span>hl</span>
+    <span>W<span>{'🐳'}</span><span class="opacity-50">h</span><span>l</span>
   </div>
 </a>
 <style>

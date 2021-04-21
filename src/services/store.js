@@ -13,6 +13,7 @@ const KEY_MEMBERS = 'wal_memmbers';
 const initItems = memo.get(KEY_MEMBERS) ?? dummyNames
 
 export const opened = writable(false)
+export const paused = writable(true)
 
 const writableMembers = writable(initItems);
 export const members = {

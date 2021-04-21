@@ -1,9 +1,8 @@
 <script lang="ts">
 import classNames from 'classnames'
 import {shuffle} from './services/array'
-import { opened } from "./services/store";
+import { opened, paused } from "./services/store";
 import { members } from "./services/store";
-
 import Setting from "./Setting.svelte";
 
 let done: string[] = []
@@ -31,6 +30,9 @@ members.subscribe((values) => {
       handleReset();
     }
 
+    // activate the timer
+    paused.set(false);
+
     show = false
     current = getRandomMember(names)
     setTimeout(() => {
@@ -43,6 +45,7 @@ members.subscribe((values) => {
     if (window.confirm("🐳 Do you really want to restart?")) {
       window.location.reload();
     }
+    //todo: delete all interval
   }
 
   const openSetting = () => {
@@ -51,16 +54,16 @@ members.subscribe((values) => {
 </script>
 
 <div class="wrapper">
-  <div class="carousel">
-      <div class="carousel__item">
-          <div class="carousel__item-head" on:click={handleRandom}>
+  <div class="wal_widget">
+      <div class="widget">
+          <div class="widget-head" on:click={handleRandom}>
             <span class="iconify" data-icon="carbon:study-next" width=40></span>
           </div>
 
-          <div class="carousel__item-body">
+          <div class="widget-body">
               {#if show}
                 <div class="title tracking-in-expand">
-                  <div>{names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
+                  <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
                 </div>
               {:else}
                 {'... shuffling ...'}
@@ -68,13 +71,12 @@ members.subscribe((values) => {
           </div>
       </div>
 
-      <div class={"carousel_items-pool"}>
-        <img class={classNames({"carousel_items_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
+      <div class={"widget_dropdown"}>
+        <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
 
         {#each names as item}
-        <div class="carousel_items-pool_name">{item}</div>
+        <div class="widget_dropdown_item">{item}</div>
         {/each}
-
       </div>
   </div>
 </div>
@@ -88,9 +90,9 @@ members.subscribe((values) => {
 <style>
   .wrapper {
     position: inherit;
-    margin-top: 30px;
+    margin-top: 20px;
   }
-  .carousel {
+  .wal_widget {
     position: relative;
     margin: 0 auto;
     width: 100%;
@@ -99,7 +101,7 @@ members.subscribe((values) => {
     justify-content: center;
     flex-direction: column;
   }
-  .carousel_items-pool {
+  .widget_dropdown {
     position: relative;
     width: 380px;
     height: 380px;
@@ -115,27 +117,24 @@ members.subscribe((values) => {
     color: #4a4c4c;
 
   }
-  .carousel_items-pool_name {
+  .widget_dropdown_item {
     border-bottom: 1px dotted #dedede;
-    padding: 8px 0;
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
+    padding: 14px 0 4px 0;
+    letter-spacing: 2px;
   }
-  .carousel_items_clip {
+  .widget_dropdown_clip {
     position: absolute;
     width: 200px;
     right: -94px;
     bottom: 45px;
   }
-  .carousel__item {
+  .widget {
     display: flex;
     flex-direction: column;
     padding: 0 12px;
   }
 
-  .carousel__item-head {
+  .widget-head {
     z-index: 100;
     cursor: pointer;
     border-radius: 50%;
@@ -150,11 +149,11 @@ members.subscribe((values) => {
     color: #c0bcbcf1;
     box-shadow: 10px 1px 28px rgba(0,0,0,0.01), 0 10px 10px rgba(0,0,0,0.08);
   }
-  .carousel__item-head:hover {
+  .widget-head:hover {
     color: #000;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
-  .carousel__item-body {
+  .widget-body {
     font-family: 'Lobster', cursive;
     font-size: 40px;
     color: #4e4e50;
