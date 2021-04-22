@@ -1,32 +1,28 @@
 <script>
-    import {opened} from '../services/store'
+    import {opened} from '../services/store';
 
-    let popupOpened = false;
+    let isOpen = false;
     opened.subscribe((value) => {
-        popupOpened = value
-    })
+        isOpen = value;
+    });
 
-    function togglePopup () {
-        popupOpened = !popupOpened
-        opened.set(popupOpened)
+    function togglePopup() {
+        isOpen = !isOpen;
+        opened.set(isOpen);
     }
 </script>
 
-{#if popupOpened}
-    <div class="dock dock-close opacity-50" on:click={togglePopup}>
-        <span
-            class="iconify"
-            data-icon="codicon:chrome-close"
-            width="20"/>
-    </div>
-{:else}
-    <div class="dock dock-close opacity-50" on:click={togglePopup}>
-        <span
-            class="iconify"
-            data-icon="gridicons:menu"
-            width="20"/>
-    </div>
-{/if}
+<div class="dock dock-close opacity-50" on:click={togglePopup}>
+    {#if isOpen}
+        <div>
+            <span class="iconify" data-icon="codicon:chrome-close"></span>
+        </div>
+    {:else}
+        <div>
+            <span class="iconify" data-icon="gridicons:menu"></span>
+        </div>
+    {/if}
+</div>
 
 <style>
   .dock-close {
@@ -34,4 +30,7 @@
     top: 10px;
   }
 
+  .iconify {
+    width: 20px;
+  }
 </style>
