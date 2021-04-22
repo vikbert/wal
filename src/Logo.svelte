@@ -11,9 +11,6 @@
 </a>
 <style>
   .logo {
-    position: absolute;
-    top: 0px;
-    left: 10px;
     font-size: 45px;
     font-family: 'Bowlby One', cursive;
   }

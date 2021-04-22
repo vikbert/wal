@@ -13,6 +13,7 @@ const defaultMember = [
     {name: 'Maria', checked: true},
 ];
 const defaultConfig = {
+    showInfo: true,
     timerLimit: 15,
     timerAudio: true,
     timerMessage: 'Die Zeit ist um.',
