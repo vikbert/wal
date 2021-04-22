@@ -39,7 +39,7 @@
         if (!isPaused) {
             time++;
             if (false === timerAnnounced && time >= timerMax * 60 && true === timerAudio) {
-                speak(timerMessage);
+                speak(timerMessage, timerAudio);
                 timerAnnounced = true;
             }
         }
@@ -66,7 +66,7 @@
 
 <div class="timer_widget">
     <div class="widget">
-        <div class={classNames("widget-body grid-container", {"exceeded": time >= timerMax})}>
+        <div class={classNames("widget-body grid-container", {"exceeded": time >= timerMax * 60})}>
             <div class="item item_day">21</div>
             <div class="item item_week">Do</div>
             <div class="item_timer">

@@ -1,15 +1,20 @@
 <script lang="ts">
     import classNames from 'classnames'
     import {shuffle} from './services/array'
-    import {paused, members, opened} from "./services/store";
+    import {paused, members, opened, config} from "./services/store";
     import speak from './services/voice';
 
     let done: string[] = []
     let current: string = '⇡'
+    let showName: boolean = false;
+    let appConfig;
+    config.subscribe((value) => {
+        appConfig = value
+    })
 
-    let popupOpened: boolean;
+    let isPopupOpened: boolean = false;
     opened.subscribe((value) => {
-        popupOpened = value
+        isPopupOpened = value
     })
 
     let names: string[];
@@ -37,11 +42,11 @@
         // activate the timer
         paused.set(false);
 
-        popupOpened = false
+        showName = false
         current = getRandomMember(names)
-        speak(current)
+        speak(current, appConfig.timerAudio)
         setTimeout(() => {
-            popupOpened = true
+            showName = true
             names = shuffle(names.filter((item, index) => item !== current))
         }, 1000);
     }
@@ -53,7 +58,7 @@
     }
 </script>
 
-<div class="wrapper" style="display: {popupOpened ? 'none' : 'block'}">
+<div class="wrapper" style="display: {isPopupOpened ? 'none' : 'block'}">
     <div class="wal_widget">
         <div class="widget">
             <div class="widget-head" on:click={handleRandom}>
@@ -61,7 +66,7 @@
             </div>
 
             <div class="widget-body">
-                {#if popupOpened}
+                {#if showName}
                     <div class="title tracking-in-expand">
                         <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
                     </div>
@@ -72,11 +77,10 @@
         </div>
 
         <div class={"widget_dropdown"}>
-            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !popupOpened})} src="images/clip-2.png" alt="clip">
-
             {#each names as item}
                 <div class="widget_dropdown_item">{item}</div>
             {/each}
+            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
         </div>
     </div>
 </div>

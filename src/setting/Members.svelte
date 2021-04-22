@@ -48,6 +48,7 @@
 </div>
 {#if items.length > 0}
     <div class="list-control">
+        <h1>manage the participants</h1>
         <div class="tasks">
             <div class="task" on:click={startChecked}>
                 <span class="iconify" data-icon="carbon:study-next" width="20"></span>
@@ -81,18 +82,9 @@
 {/if}
 
 <style>
-  .right {
-    border-right: 1px solid #5a7baf;
-    text-align: center;
-  }
-
   .list-form, .list-control {
     display: grid;
     place-items: center;
-  }
-
-  .list-control {
-    padding: 5rem 0 0 0;
   }
 
   .tasks {
@@ -176,8 +168,10 @@
   }
 
   h1 {
+    font-size: 3rem;
     padding-bottom: 2rem;
-    opacity: 50%;
+    opacity: 15%;
+    color: white;
   }
 
   .svg {

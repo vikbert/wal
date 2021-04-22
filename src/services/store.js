@@ -1,7 +1,7 @@
 import {writable} from 'svelte/store';
 import * as memo from './memo';
 
-const dummyNames = [
+const defaultMember = [
     {name: 'Alexander', checked: true},
     {name: 'Paul', checked: true},
     {name: 'Lukas', checked: true},
@@ -12,23 +12,29 @@ const dummyNames = [
     {name: 'Johanna', checked: true},
     {name: 'Maria', checked: true},
 ];
+const defaultConfig = {
+    timerLimit: 15,
+    timerAudio: true,
+    timerMessage: 'Die Zeit ist um.',
+};
 
 // storage keys
 const KEY_MEMBERS = 'wal_members';
 const KEY_CONFIG = 'wal_config';
 const KEY_PROJECT = 'wal_project';
 
-// if no data found in storage, then load init dummy memebers
-const initItems = memo.get(KEY_MEMBERS) ?? dummyNames;
+// if no data found in storage, then load init dummy members
+const initMembers = memo.get(KEY_MEMBERS) ?? defaultMember;
+const initConfig = memo.get(KEY_CONFIG) ?? defaultConfig;
 
 // opened: if the setting popup is opened
-export const opened = writable(true);
+export const opened = writable(false);
 
 // paused: if the timer is paused
 export const paused = writable(true);
 
 // config: state of config with the persistence in storage
-const writableConfig = writable({timerLimit: 15, timerAudio: true, timerMessage: 'Die Zeit ist um.'});
+const writableConfig = writable(initConfig);
 export const config = {
     ...writableConfig,
     persistent: function(data) {
@@ -38,7 +44,7 @@ export const config = {
 };
 
 // members: state of members with the persistence in storage
-const writableMembers = writable(initItems);
+const writableMembers = writable(initMembers);
 export const members = {
     ...writableMembers,
     persistent: function(data) {

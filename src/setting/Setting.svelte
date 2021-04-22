@@ -1,8 +1,8 @@
 <script lang="ts">
-    import PopupToggle from './PopupToggle.svelte';
-    import Checkbox from '../components/Checkbox.svelte';
-    import {opened, members, config} from '../services/store'
+    import AudioSwitch from '../components/AudioSwitch.svelte';
+    import {opened, config} from '../services/store'
     import Members from './Members.svelte';
+    import PopupToggle from './PopupToggle.svelte';
 
     let appConfig;
     config.subscribe((data) => {
@@ -16,11 +16,11 @@
 
     function togglePopup() {
         show = !show;
-        opened.set(show);
+        opened.set(show)
     }
 
     function handleUpdateConfig() {
-        config.persistent(appConfig);
+        config.persistent(appConfig)
     }
 
     function handleOnChangeCheckbox(checked: boolean): void {
@@ -29,7 +29,11 @@
             timerAudio: checked,
         }
 
-        handleUpdateConfig();
+        handleUpdateConfig()
+    }
+
+    function handleSubmit() {
+        handleUpdateConfig()
     }
 
 </script>
@@ -40,19 +44,25 @@
     <div class={"setting scale-in-ver-center"}>
         <div class="right">
             <div class="options">
-                <h1>Time limit of the meeting: </h1>
-                <input
-                    type="number"
-                    class="timer_limit"
-                    placeholder="15"
-                    max="120"
-                    on:change={handleUpdateConfig}
-                    bind:value={appConfig.timerLimit}>
-                <span>mins</span>
-
-                <h1>Timer Audio:</h1>
-                <!--                <AudioSwitch enabled={true}/>-->
-                <Checkbox checked={appConfig.timerAudio} onChangeCallback={handleOnChangeCheckbox}/>
+                <div class="option">
+                    <h1>Time limit of the meeting: </h1>
+                    <form on:submit={handleSubmit}>
+                        <input
+                            type="number"
+                            class="timer_limit"
+                            max="120"
+                            min="15"
+                            on:change={handleUpdateConfig}
+                            bind:value={appConfig.timerLimit}
+                        />
+                        <span>mins</span>
+                    </form>
+                </div>
+                <div class="option">
+                    <h1>Timer Audio: {appConfig.timerAudio ? 'ON' : 'OFF'}</h1>
+                    <AudioSwitch/>
+                    <!--                    <Checkbox checked={appConfig.timerAudio} onChangeCallback={handleOnChangeCheckbox}/>-->
+                </div>
             </div>
         </div>
 
@@ -92,7 +102,15 @@
     opacity: 50%;
   }
 
+  .option {
+    padding-bottom: 2rem;
+  }
+
   input.timer_limit {
-    width: 5rem;
+    width: 8rem;
+  }
+
+  .iconify {
+    width: 20px;
   }
 </style>

@@ -1,6 +1,10 @@
 
-const speak = function(text) {
+const speak = function(text, enabled = true) {
   if (!text) {
+    return;
+  }
+
+  if (!enabled) {
     return;
   }
 
