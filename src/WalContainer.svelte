@@ -1,97 +1,89 @@
 <script lang="ts">
-import classNames from 'classnames'
-import {shuffle} from './services/array'
-import { opened, paused } from "./services/store";
-import { members } from "./services/store";
-import Setting from "./Setting.svelte";
+    import classNames from 'classnames'
+    import {shuffle} from './services/array'
+    import {paused, members} from "./services/store";
+    import speak from './services/voice';
 
-let done: string[] = []
-let show: boolean = true;
-let current: string = '⇡'
+    let done: string[] = []
+    let show: boolean = true;
+    let current: string = '⇡'
 
-let names: string[];
-members.subscribe((values) => {
-  names = values.filter((item) => item.checked).map((item) => item.name);
-})
-  const getRandomMember = (items: string[]): string => {
-      if (names.length === 0) {
-          return;
-      }
+    let names: string[];
+    members.subscribe((values) => {
+        names = values.filter((item) => item.checked).map((item) => item.name);
+    })
 
-      const nextIndex = Math.floor(Math.random() * items.length);
-      const nextName = names[nextIndex]
-      done = [nextName, ...done]
+    const getRandomMember = (items: string[]): string => {
+        if (names.length === 0) {
+            return;
+        }
 
-      return nextName
-  }
+        const nextIndex = Math.floor(Math.random() * items.length);
+        const nextName = names[nextIndex]
+        done = [nextName, ...done]
 
-  const handleRandom = () => {
-    if (0 === names.length) {
-      handleReset();
+        return nextName
     }
 
-    // activate the timer
-    paused.set(false);
+    const handleRandom = () => {
+        if (0 === names.length) {
+            handleReset();
+        }
 
-    show = false
-    current = getRandomMember(names)
-    setTimeout(() => {
-      show = true
-      names = shuffle(names.filter((item, index) => item !== current))
-    }, 1000);
-  }
+        // activate the timer
+        paused.set(false);
 
-  const handleReset = () => {
-    if (window.confirm("🐳 Do you really want to restart?")) {
-      window.location.reload();
+        show = false
+        current = getRandomMember(names)
+        speak(current)
+        setTimeout(() => {
+            show = true
+            names = shuffle(names.filter((item, index) => item !== current))
+        }, 1000);
     }
-    //todo: delete all interval
-  }
 
-  const openSetting = () => {
-    opened.set(true);
-  }
+    const handleReset = () => {
+        if (window.confirm("🐳 Do you really want to restart?")) {
+            window.location.reload();
+        }
+        //todo: delete all interval
+    }
 </script>
 
 <div class="wrapper">
-  <div class="wal_widget">
-      <div class="widget">
-          <div class="widget-head" on:click={handleRandom}>
-            <span class="iconify" data-icon="carbon:study-next" width=40></span>
-          </div>
+    <div class="wal_widget">
+        <div class="widget">
+            <div class="widget-head" on:click={handleRandom}>
+                <span class="iconify" data-icon="carbon:study-next" width="40"></span>
+            </div>
 
-          <div class="widget-body">
-              {#if show}
-                <div class="title tracking-in-expand">
-                  <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
-                </div>
-              {:else}
-                {'... shuffling ...'}
-              {/if}
-          </div>
-      </div>
+            <div class="widget-body">
+                {#if show}
+                    <div class="title tracking-in-expand">
+                        <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
+                    </div>
+                {:else}
+                    {'... shuffling ...'}
+                {/if}
+            </div>
+        </div>
 
-      <div class={"widget_dropdown"}>
-        <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
+        <div class={"widget_dropdown"}>
+            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !show})} src="images/clip-2.png" alt="clip">
 
-        {#each names as item}
-        <div class="widget_dropdown_item">{item}</div>
-        {/each}
-      </div>
-  </div>
+            {#each names as item}
+                <div class="widget_dropdown_item">{item}</div>
+            {/each}
+        </div>
+    </div>
 </div>
-
-<div on:click={openSetting} class="dock dock-setting opacity-25">
-  <span class="iconify" data-icon="gridicons:menu" width='20'></span>
-</div>
-
-<Setting/>
 
 <style>
   .wrapper {
     position: inherit;
     margin-top: 10px;
   }
+
   .wal_widget {
     position: relative;
     margin: 0 auto;
@@ -101,6 +93,7 @@ members.subscribe((values) => {
     justify-content: center;
     flex-direction: column;
   }
+
   .widget_dropdown {
     position: relative;
     width: 380px;
@@ -117,17 +110,20 @@ members.subscribe((values) => {
     color: #4a4c4c;
 
   }
+
   .widget_dropdown_item {
     border-bottom: 1px dotted #dedede;
     padding: 14px 0 4px 0;
     letter-spacing: 2px;
   }
+
   .widget_dropdown_clip {
     position: absolute;
     width: 200px;
     right: -94px;
     bottom: 45px;
   }
+
   .widget {
     display: flex;
     flex-direction: column;
@@ -147,13 +143,15 @@ members.subscribe((values) => {
     font-size: 50px;
     transition: all 1.5s;
     color: #000;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
+
   .widget-head:hover {
     color: #c0bcbcf1;
-    box-shadow: 10px 1px 28px rgba(0,0,0,0.01), 0 10px 10px rgba(0,0,0,0.08);
+    box-shadow: 10px 1px 28px rgba(0, 0, 0, 0.01), 0 10px 10px rgba(0, 0, 0, 0.08);
 
   }
+
   .widget-body {
     font-family: 'Lobster', cursive;
     font-size: 40px;
@@ -164,11 +162,8 @@ members.subscribe((values) => {
     background-color: #fff;
     border-radius: 8px;
     padding: 40px 20px 20px 20px;
-    -webkit-box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
-    -moz-box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
-    box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
-  }
-  .dock-setting {
-    top: 10px;
+    -webkit-box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
+    -moz-box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
+    box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
   }
 </style>

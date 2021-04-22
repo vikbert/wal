@@ -1,6 +1,10 @@
 
 const speak = function(text) {
-  var msg = new SpeechSynthesisUtterance();
+  if (!text) {
+    return;
+  }
+
+  const msg = new SpeechSynthesisUtterance();
   msg.text = text;
 
   window.speechSynthesis.speak(msg);
