@@ -1,16 +1,16 @@
 <script lang="ts">
-    import Header from './Header.svelte'
+    import Logo from './Logo.svelte';
     import Info from './Info.svelte'
-    import Setting from './Setting.svelte';
-    import TimerWidget from './timer/TimerWidget.svelte';
-    import WalContainer from './WalContainer.svelte'
+    import Setting from './setting/Setting.svelte';
+    import TimerWidget from './TimerWidget.svelte';
+    import WalWidget from './WalWidget.svelte'
 </script>
 
 <div class="main">
     <Setting/>
-    <Header/>
+    <Logo/>
     <TimerWidget/>
-    <WalContainer/>
+    <WalWidget/>
     <Info/>
 </div>
 

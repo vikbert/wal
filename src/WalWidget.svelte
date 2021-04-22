@@ -9,8 +9,8 @@
     let current: string = '⇡'
 
     let names: string[];
-    members.subscribe((values) => {
-        names = values.filter((item) => item.checked).map((item) => item.name);
+    members.subscribe((value) => {
+        names = value.filter((item) => item.checked).map((item) => item.name);
     })
 
     const getRandomMember = (items: string[]): string => {
@@ -46,7 +46,6 @@
         if (window.confirm("🐳 Do you really want to restart?")) {
             window.location.reload();
         }
-        //todo: delete all interval
     }
 </script>
 

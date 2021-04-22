@@ -1,5 +1,5 @@
 <script>
-    import Dock from '../Dock.svelte'
+    import Dock from './Dock.svelte'
     export let enabled = true;
 </script>
 
@@ -16,7 +16,7 @@
 
 <style>
     .iconify {
-        color: red;
+        color: blue;
         font-size: 40px;
     }
 </style>

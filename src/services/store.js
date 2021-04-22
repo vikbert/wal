@@ -18,7 +18,7 @@ const KEY_PROJECT = 'wal_project';
 const initItems = memo.get(KEY_MEMBERS) ?? dummyNames;
 
 // opened: if the setting popup is opened
-export const opened = writable(true);
+export const opened = writable(false);
 
 // paused: if the timer is paused
 export const paused = writable(true);

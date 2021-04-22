@@ -2,7 +2,7 @@
     export let callback = () => null;
 </script>
 
-<div on:click={callback} class="dock opacity-50">
+<div on:click={callback} class="dock" style={{'color': 'red'}}>
     <slot></slot>
 </div>
 
@@ -12,5 +12,6 @@
     background-color: #fff;
     border-radius: 50%;
     padding: 8px;
+    opacity: 50%;
   }
 </style>

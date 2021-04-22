@@ -1,8 +1,9 @@
 <script lang="ts">
     import classNames from 'classnames'
-    import AudioSwitch from './components/AudioSwitch.svelte';
-    import Checkbox from './components/Checkbox.svelte';
-    import {opened, members, config} from './services/store'
+    import Dock from '../components/Dock.svelte';
+    import AudioSwitch from '../components/AudioSwitch.svelte';
+    import Checkbox from '../components/Checkbox.svelte';
+    import {opened, members, config} from '../services/store'
 
     let items = [];
     let appConfig;
@@ -20,7 +21,7 @@
         show = value;
     });
 
-    function toggleSettingPopup() {
+    function togglePopup() {
         show = !show;
         opened.set(show);
     }
@@ -67,18 +68,18 @@
 
 </script>
 {#if show}
-    <div class="dock dock-close opacity-50" on:click={toggleSettingPopup}>
-    <span
-        class="iconify"
-        data-icon="codicon:chrome-close"
-        width="20"/>
+    <div class="dock dock-close opacity-50" on:click={togglePopup}>
+        <span
+            class="iconify"
+            data-icon="codicon:chrome-close"
+            width="20"/>
     </div>
 {:else}
-    <div class="dock dock-close opacity-50" on:click={toggleSettingPopup}>
-    <span
-        class="iconify"
-        data-icon="gridicons:menu"
-        width="20"/>
+    <div class="dock dock-close opacity-50" on:click={togglePopup}>
+        <span
+            class="iconify"
+            data-icon="gridicons:menu"
+            width="20"/>
     </div>
 {/if}
 
@@ -97,7 +98,7 @@
                 <span>mins</span>
 
                 <h1>Timer Audio:</h1>
-                <AudioSwitch enabled={true}/>
+<!--                <AudioSwitch enabled={true}/>-->
                 <Checkbox checked={appConfig.timerAudio} onChangeCallback={handleOnChangeCheckbox}/>
             </div>
         </div>
@@ -171,10 +172,6 @@
     opacity: 50%;
   }
 
-  h2 {
-    margin-top: 2rem;
-  }
-
   .dock-close {
     z-index: 9999;
     top: 10px;
@@ -183,6 +180,9 @@
   .list-form, .list-control {
     display: grid;
     place-items: center;
+  }
+  .list-control {
+    padding: 5rem 0 0 0;
   }
 
   input {
@@ -249,7 +249,6 @@
     flex-wrap: wrap;
     max-width: 99rem;
     margin: 0 auto;
-    padding-top: 70px;
     height: 1px;
   }
 
