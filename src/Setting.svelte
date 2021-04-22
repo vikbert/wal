@@ -54,7 +54,7 @@
     <span
       class="iconify"
       data-icon="codicon:chrome-close"
-      width='40'/>
+      width='20'/>
   </div>
   <div class="header">
     <form on:submit={handleSubmit}>
@@ -97,6 +97,7 @@
   .setting {
     z-index: 200;
     position: absolute;
+    top: 0;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(60deg, #420285, #08BDBD);
@@ -106,7 +107,7 @@
     transition: all 0.8s;
   }
   .dock-close {
-    top: 20px;
+    top: 10px;
   }
   .header {
     display: grid;
@@ -115,7 +116,6 @@
   input {
     line-height: 50px;
     font-size: 30px;
-
     background: transparent;
     border: none;
     outline: none;
@@ -180,9 +180,9 @@
     display: grid;
     place-items: center;
     width: 340px;
-    height: 80px;
+    height: 60px;
     margin: 8px;
-    font-size: 30px;
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.598);
     border-radius: 16px;
     border: 1px solid  rgba(255, 255, 0, 0.18);
@@ -198,7 +198,7 @@
   .item-checkmark {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 15px;
     display: block;
     font-size: 30px;
     color:rgba(224, 224, 215, 0.468);

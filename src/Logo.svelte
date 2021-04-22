@@ -11,9 +11,11 @@
 </a>
 <style>
   .logo {
-    font-size: 90px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    font-size: 45px;
     font-family: 'Bowlby One', cursive;
-    /* margin-top: 20px; */
   }
   a {
     color: white;

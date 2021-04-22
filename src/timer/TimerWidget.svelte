@@ -1,8 +1,12 @@
 <script>
     import classNames from 'classnames';
     import {paused} from '../services/store';
+    import speak from '../services/voice';
 
-    let timer = 15 * 60; // 15 minutes
+    let time = 0;
+    let timeMax = 5;
+    let timerMessage = 'Die Zeit ist um.'
+    let timerAnnounced = false;
     String.prototype.toHHMMSS = function () {
         var sec_num = parseInt(this, 10); // don't forget the second param
         var hours   = Math.floor(sec_num / 3600);
@@ -13,13 +17,16 @@
         if (minutes < 10) {minutes = "0"+minutes;}
         if (seconds < 10) {seconds = "0"+seconds;}
 
-        return minutes+':'+seconds;
+        return `${minutes}:${seconds}`;
     }
 
-    let time = 0;
     var id = window.setInterval(function() {
         if(!isPaused) {
             time++;
+            if (false === timerAnnounced && time >= timeMax) {
+                speak(timerMessage);
+                timerAnnounced = true
+            }
         }
     }, 1000);
 
@@ -29,21 +36,24 @@
     });
 
     function handlePause () {
+        speak('the time is over');
+        console.log('##');
         isPaused = true;
+        paused.set(true);
     }
 
     function handleStart () {
         isPaused = false;
+        paused.set(false);
     }
 
-	$: toWait = timer - time > 0 ? timer - time : 0
-	$: minutes = Math.floor(toWait) + ''
+	$: minutes = Math.floor(time) + ''
 
 </script>
 
 <div class="timer_widget">
   <div class="widget">
-      <div class="widget-body grid-container">
+      <div class={classNames("widget-body grid-container", {"exceeded": time >= timeMax})}>
        <div class="item item_day">21</div>
        <div class="item item_week">Do</div>
        <div class="item_timer opacity-50">
@@ -63,6 +73,7 @@
   .timer_widget {
     position: relative;
     margin: 0 auto;
+    margin-top: 80px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -105,5 +116,9 @@
   .active {
       opacity: 75%;
       transition: all 1.2s;
+  }
+  .exceeded {
+      background-color: red;
+      opacity: 75%;
   }
 </style>

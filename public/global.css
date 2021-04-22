@@ -1,6 +1,11 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+/* @media only screen and (max-width: 560px) {
+    .logo {
+      display: none;
+    }
+  } */
 body {
   margin: 0;
   padding: 0;

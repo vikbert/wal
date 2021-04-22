@@ -6,7 +6,7 @@
 </script>
 
 <div class="main">
-  <!-- <Header/> -->
+  <Header/>
   <TimerWidget/>
   <WalContainer/>
   <Info/>
@@ -15,7 +15,5 @@
 <style>
   .main {
     height: 100%;
-    display: grid;
-    grid-template-rows: 150px 1fr 1fr;
   }
 </style>

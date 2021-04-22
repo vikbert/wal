@@ -82,7 +82,7 @@ members.subscribe((values) => {
 </div>
 
 <div on:click={openSetting} class="dock dock-setting opacity-25">
-  <span class="iconify" data-icon="carbon:settings-adjust" width='40' />
+  <span class="iconify" data-icon="gridicons:menu" width='20'></span>
 </div>
 
 <Setting/>
@@ -90,7 +90,7 @@ members.subscribe((values) => {
 <style>
   .wrapper {
     position: inherit;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .wal_widget {
     position: relative;
@@ -146,12 +146,13 @@ members.subscribe((values) => {
     margin-bottom: -35px;
     font-size: 50px;
     transition: all 1.5s;
-    color: #c0bcbcf1;
-    box-shadow: 10px 1px 28px rgba(0,0,0,0.01), 0 10px 10px rgba(0,0,0,0.08);
-  }
-  .widget-head:hover {
     color: #000;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .widget-head:hover {
+    color: #c0bcbcf1;
+    box-shadow: 10px 1px 28px rgba(0,0,0,0.01), 0 10px 10px rgba(0,0,0,0.08);
+
   }
   .widget-body {
     font-family: 'Lobster', cursive;
@@ -168,6 +169,6 @@ members.subscribe((values) => {
     box-shadow: -2px 9px 21px -8px rgba(13,114,146,0.73);
   }
   .dock-setting {
-    top: 20px;
+    top: 10px;
   }
 </style>
