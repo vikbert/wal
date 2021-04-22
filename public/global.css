@@ -1,6 +1,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
 /* @media only screen and (max-width: 560px) {
     .logo {
       display: none;
@@ -14,18 +15,23 @@ body {
   height: 100vh;
   background: linear-gradient(60deg, #420285, #08BDBD);
 }
+
 .opacity-25 {
   opacity: 25%;
 }
+
 .opacity-50 {
   opacity: 50%;
 }
+
 .opacity-75 {
   opacity: 75%;
 }
+
 .opacity-100 {
   opacity: unset;
 }
+
 .dock {
   cursor: pointer;
   background-color: #fff;
@@ -34,19 +40,52 @@ body {
   position: absolute;
   right: 10px;
 }
+
 .dock:hover {
   opacity: 80%;
 }
+
+input {
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.829);
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.829);
+}
+
+
+input:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.829);;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: rgba(255, 255, 255, 0.166);
+  font-size: 20px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.365);
+  font-size: 20px;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.365);
+  font-size: 20px;
+}
+
 /**
  * ----------------------------------------
  * animation tracking-in-expand
  * ----------------------------------------
  */
 .tracking-in-expand {
-	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
- @-webkit-keyframes tracking-in-expand {
+
+@-webkit-keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
     opacity: 0;
@@ -58,6 +97,7 @@ body {
     opacity: 1;
   }
 }
+
 @keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
@@ -83,34 +123,35 @@ body {
  * animation scale-in-ver-center
  * ----------------------------------------
  */
- @-webkit-keyframes scale-in-ver-center {
+@-webkit-keyframes scale-in-ver-center {
   0% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     opacity: 1;
   }
 }
+
 @keyframes scale-in-ver-center {
   0% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     opacity: 1;
   }
 }
 
 .scale-in-ver-center {
-	-webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 /* ----------------------------------------------
@@ -125,42 +166,43 @@ body {
  * animation scale-out-hor-right
  * ----------------------------------------
  */
- @-webkit-keyframes scale-out-hor-right {
+@-webkit-keyframes scale-out-hor-right {
   0% {
     -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    transform: scaleX(1);
     -webkit-transform-origin: 100% 100%;
-            transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: scaleX(0);
     -webkit-transform-origin: 100% 100%;
-            transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
     opacity: 1;
   }
 }
+
 @keyframes scale-out-hor-right {
   0% {
     -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    transform: scaleX(1);
     -webkit-transform-origin: 100% 100%;
-            transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: scaleX(0);
     -webkit-transform-origin: 100% 100%;
-            transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
     opacity: 1;
   }
 }
 
 .scale-out-hor-right {
-	-webkit-animation: scale-out-hor-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: scale-out-hor-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  -webkit-animation: scale-out-hor-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: scale-out-hor-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
 /* ----------------------------------------------
@@ -175,35 +217,36 @@ body {
  * animation rotate-in-center
  * ----------------------------------------
  */
- @-webkit-keyframes rotate-in-center {
+@-webkit-keyframes rotate-in-center {
   0% {
     -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    transform: rotate(-360deg);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
     opacity: 1;
   }
 }
+
 @keyframes rotate-in-center {
   0% {
     -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    transform: rotate(-360deg);
     opacity: 0;
   }
   100% {
     -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
     opacity: 1;
   }
 }
 
 .rotate-in-center {
   transition-timing-function: ease;
-	-webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: rotate-in-center 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 /**
@@ -213,33 +256,36 @@ body {
  */
 @keyframes fadein {
   from {
-      opacity:0;
+    opacity: 0;
   }
   to {
-      opacity:1;
+    opacity: 1;
   }
 }
+
 @-moz-keyframes fadein { /* Firefox */
   from {
-      opacity:0;
+    opacity: 0;
   }
   to {
-      opacity:1;
+    opacity: 1;
   }
 }
+
 @-webkit-keyframes fadein { /* Safari and Chrome */
   from {
-      opacity:0;
+    opacity: 0;
   }
   to {
-      opacity:1;
+    opacity: 1;
   }
 }
+
 @-o-keyframes fadein { /* Opera */
   from {
-      opacity:0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
