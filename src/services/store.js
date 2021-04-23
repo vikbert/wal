@@ -29,7 +29,7 @@ const initMembers = memo.get(KEY_MEMBERS) ?? defaultMember;
 const initConfig = memo.get(KEY_CONFIG) ?? defaultConfig;
 
 // opened: if the setting popup is opened
-export const opened = writable(false);
+export const opened = writable(true);
 
 // paused: if the timer is paused
 export const paused = writable(true);

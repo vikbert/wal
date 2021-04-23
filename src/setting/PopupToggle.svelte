@@ -20,19 +20,18 @@
         </div>
     {:else}
         <div>
-            <span class="iconify" data-icon="gridicons:menu"></span>
+            <span class="iconify" data-icon="grommet-icons:menu" width={17}></span>
         </div>
     {/if}
 </div>
 
-<div class="audio_toggle_icon">
-    <AudioSwitch size={20}/>
-</div>
+{#if !isOpen}
+    <div class="audio_toggle_icon">
+        <AudioSwitch size={17}/>
+    </div>
+{/if}
 
 <style>
-  .iconify {
-    width: 20px;
-  }
   .popup_toggle_icon {
     position: absolute;
     right: 10px;
@@ -41,8 +40,8 @@
   }
   .audio_toggle_icon {
     position: absolute;
-    top: 50px;
-    right: 10px;
+    top: 10px;
+    right: 50px;
     opacity: 50%;
   }
 </style>

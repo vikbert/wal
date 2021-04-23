@@ -1,6 +1,6 @@
 <script>
     import {config} from '../services/store';
-    export let size = 35;
+    export let size = 30;
 
     let appConfig;
     config.subscribe((value) => {
@@ -19,21 +19,14 @@
     }
 </script>
 
-<div class="dock audio-dock" on:click={handleToggleAudioIcon} style="font-size: {size}px;">
+<div class="dock audio-dock" on:click={handleToggleAudioIcon}>
     {#if appConfig.timerAudio}
         <div>
-            <span class="iconify" data-icon="ant-design:audio-outlined"></span>
+            <span class="iconify" data-icon="ant-design:audio-outlined" width={size}></span>
         </div>
     {:else}
         <div>
-            <span class="iconify" data-icon="ant-design:audio-muted-outlined"></span>
+            <span class="iconify" data-icon="ant-design:audio-muted-outlined" width={size}></span>
         </div>
     {/if}
 </div>
-
-<style>
-  .iconify {
-    color: #545454;
-    cursor: pointer;
-  }
-</style>
