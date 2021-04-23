@@ -45,8 +45,8 @@ The idea of this application is inspired by someone's kindly suggestion during t
 
 # 🚀 Getting started
 ```bash
-npx degit vikbert/sests svelte-app
-cd svelte-app
+git clone https://github.com/vikbert/wal.git
+cd wal
 npm install
 ```
 
