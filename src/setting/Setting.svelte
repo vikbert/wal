@@ -109,8 +109,4 @@
   input.timer_limit {
     width: 8rem;
   }
-
-  .iconify {
-    width: 20px;
-  }
 </style>
