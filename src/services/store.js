@@ -20,8 +20,8 @@ const defaultConfig = {
 };
 
 // storage keys
-const KEY_MEMBERS = 'wal_members';
-const KEY_CONFIG = 'wal_config';
+export const KEY_MEMBERS = 'wal_members';
+export const KEY_CONFIG = 'wal_config';
 const KEY_PROJECT = 'wal_project';
 
 // if no data found in storage, then load init dummy members
