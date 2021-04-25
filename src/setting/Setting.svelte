@@ -1,7 +1,7 @@
 <script lang="ts">
     import AudioSwitch from '../components/AudioSwitch.svelte';
     import {opened, config} from '../services/store'
-    import Import from './Import.svelte';
+    import JsonSetting from './JsonSetting.svelte';
     import Members from './Members.svelte';
     import PopupToggle from './PopupToggle.svelte';
 
@@ -65,7 +65,7 @@
                     <!--                    <Checkbox checked={appConfig.timerAudio} onChangeCallback={handleOnChangeCheckbox}/>-->
                 </div>
                 <div class="option">
-                    <Import/>
+                    <JsonSetting/>
                 </div>
             </div>
         </div>
