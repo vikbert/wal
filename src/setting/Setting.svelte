@@ -46,7 +46,7 @@
         <div class="right">
             <div class="options">
                 <div class="option">
-                    <h1>Time limit of the meeting: </h1>
+                    <h1>Time Limit: </h1>
                     <form on:submit={handleSubmit}>
                         <input
                             type="number"
@@ -60,9 +60,8 @@
                     </form>
                 </div>
                 <div class="option">
-                    <h1>Timer Audio: {appConfig.timerAudio ? 'ON' : 'OFF'}</h1>
+                    <h1>Audio: {appConfig.timerAudio ? 'ON' : 'OFF'}</h1>
                     <AudioSwitch/>
-                    <!--                    <Checkbox checked={appConfig.timerAudio} onChangeCallback={handleOnChangeCheckbox}/>-->
                 </div>
                 <div class="option">
                     <JsonSetting/>

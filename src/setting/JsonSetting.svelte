@@ -22,8 +22,6 @@
         [KEY_MEMBERS]: JSON.parse(localStorage.getItem(KEY_MEMBERS)),
         };
 
-        console.log(walConfigData);
-
         const current = new Date();
         const fileName = `wal_export_${current.toLocaleDateString()}_${current.toLocaleTimeString()}`;
         const json = JSON.stringify(walConfigData);
