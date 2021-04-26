@@ -35,9 +35,6 @@
 
         handleUpdateConfig()
     }
-
-
-
 </script>
 
 <PopupToggle/>
@@ -76,18 +73,5 @@
   .right {
     border-right: 1px solid #5a7baf;
     text-align: center;
-  }
-
-  .options {
-    color: white;
-    opacity: 50%;
-  }
-
-  .option {
-    padding-bottom: 2rem;
-  }
-
-  input.timer_limit {
-    width: 8rem;
   }
 </style>
