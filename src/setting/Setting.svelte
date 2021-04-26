@@ -1,8 +1,7 @@
 <script lang="ts">
-    import AudioSwitch from '../components/AudioSwitch.svelte';
     import {opened, config} from '../services/store'
-    import JsonSetting from './JsonSetting.svelte';
     import Members from './Members.svelte';
+    import Options from './Options.svelte';
     import PopupToggle from './PopupToggle.svelte';
 
     let appConfig;
@@ -24,6 +23,10 @@
         config.persistent(appConfig)
     }
 
+    function handleSubmit() {
+        handleUpdateConfig()
+    }
+
     function handleOnChangeCheckbox(checked: boolean): void {
         appConfig = {
             ...appConfig,
@@ -33,9 +36,7 @@
         handleUpdateConfig()
     }
 
-    function handleSubmit() {
-        handleUpdateConfig()
-    }
+
 
 </script>
 
@@ -44,31 +45,8 @@
 {#if show}
     <div class={"setting scale-in-ver-center"}>
         <div class="right">
-            <div class="options">
-                <div class="option">
-                    <h1>Time Limit: </h1>
-                    <form on:submit={handleSubmit}>
-                        <input
-                            type="number"
-                            class="timer_limit"
-                            max="120"
-                            min="15"
-                            on:change={handleUpdateConfig}
-                            bind:value={appConfig.timerLimit}
-                        />
-                        <span>mins</span>
-                    </form>
-                </div>
-                <div class="option">
-                    <h1>Audio: {appConfig.timerAudio ? 'ON' : 'OFF'}</h1>
-                    <AudioSwitch/>
-                </div>
-                <div class="option">
-                    <JsonSetting/>
-                </div>
-            </div>
+            <Options/>
         </div>
-
         <div class="left">
             <Members/>
         </div>

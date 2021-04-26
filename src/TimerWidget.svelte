@@ -1,6 +1,7 @@
 <script>
     import classNames from 'classnames';
     import {config, paused} from './services/store';
+    import {getDay} from './services/date'
     import speak from './services/voice';
 
     let time = 0;
@@ -60,6 +61,8 @@
         paused.set(false);
     }
 
+    const day = getDay();
+
     $: minutes = Math.floor(time) + '';
 
 </script>
@@ -67,8 +70,8 @@
 <div class="timer_widget">
     <div class="widget">
         <div class={classNames("widget-body grid-container", {"exceeded": time >= timerMax * 60})}>
-            <div class="item item_day">21</div>
-            <div class="item item_week">Do</div>
+            <div class="item item_day">{day.day}</div>
+            <div class="item item_week">{day.weekDay}</div>
             <div class="item_timer">
                 {minutes.toHHMMSS()}
             </div>

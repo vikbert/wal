@@ -27,7 +27,9 @@
 
 {#if !isOpen}
     <div class="audio_toggle_icon">
-        <AudioSwitch size={17}/>
+        <div class="dock">
+            <AudioSwitch size={17}/>
+        </div>
     </div>
 {/if}
 

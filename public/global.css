@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-/* @media only screen and (max-width: 560px) {
-    .logo {
-      display: none;
-    }
-  } */
 body {
   margin: 0;
   padding: 0;
@@ -14,6 +9,9 @@ body {
   font-weight: 400;
   height: 100vh;
   background: linear-gradient(60deg, #420285, #08BDBD);
+}
+.iconify {
+    cursor: pointer;
 }
 
 .opacity-25 {
@@ -54,11 +52,6 @@ input {
   padding: 10px 30px;
   border: 1px solid rgba(255, 255, 255, 0.829);
   border-radius: 30px;
-}
-
-
-input:hover {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.829);;
 }
 
 ::-webkit-input-placeholder { /* Edge */

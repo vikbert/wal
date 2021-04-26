@@ -4,7 +4,6 @@
     import {paused, members, opened, config} from "./services/store";
     import speak from './services/voice';
 
-    let done: string[] = []
     let current: string = '⇡'
     let showName: boolean = false;
     let appConfig;
@@ -22,18 +21,6 @@
         names = value.filter((item) => item.checked).map((item) => item.name);
     })
 
-    const getRandomMember = (items: string[]): string => {
-        if (names.length === 0) {
-            return;
-        }
-
-        const nextIndex = Math.floor(Math.random() * items.length);
-        const nextName = names[nextIndex]
-        done = [nextName, ...done]
-
-        return nextName
-    }
-
     const handleRandom = () => {
         if (0 === names.length) {
             handleReset();
@@ -41,13 +28,13 @@
 
         // activate the timer
         paused.set(false);
-
         showName = false
-        current = getRandomMember(names)
+
+        names = shuffle(names)
+        current = names.pop()
         speak(current, appConfig.timerAudio)
         setTimeout(() => {
             showName = true
-            names = shuffle(names.filter((item, index) => item !== current))
         }, 1000);
     }
 

@@ -38,9 +38,8 @@
 </script>
 
 <div id="app">
-    <h1>Import & Export the settings</h1>
-    <div class="dock" on:click={()=>{fileInputRef.click()}}>
-        <span class="iconify" data-icon="fe:upload" width="30"></span>
+    <div on:click={()=>{fileInputRef.click()}}>
+        <span class="iconify" data-icon="fe:upload" width="50"></span>
     </div>
     <input
         class="upload"
@@ -49,8 +48,8 @@
         on:change={handleOnChange} bind:this={fileInputRef}
     />
 
-    <div class="dock" on:click={downloadFile}>
-        <span class="iconify" data-icon="fe:download" width="30"></span>
+    <div on:click={downloadFile}>
+        <span class="iconify" data-icon="fe:download" width="50"></span>
     </div>
 </div>
 

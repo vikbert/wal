@@ -60,6 +60,9 @@ npm run dev
 npm run test 
 ```
 
+# Todo:
+- add projects and order the participants by projects
+
 # licence
 
 MIT [@vikbert](https://vikbert.github.io/)

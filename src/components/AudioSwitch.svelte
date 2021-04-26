@@ -12,14 +12,13 @@
             ...appConfig,
             timerAudio: !appConfig.timerAudio,
         };
-        console.log(newConfig);
 
         config.persistent(newConfig);
 
     }
 </script>
 
-<div class="dock audio-dock" on:click={handleToggleAudioIcon}>
+<div on:click={handleToggleAudioIcon} style="cursor: pointer;">
     {#if appConfig.timerAudio}
         <div>
             <span class="iconify" data-icon="ant-design:audio-outlined" width={size}></span>
