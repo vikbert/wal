@@ -13,6 +13,8 @@ const onReaderLoad = (event) => {
     Object.keys(json).map((key) => {
         memo.set(key, json[key]);
     });
+
+    window.location.reload();
 };
 
 
