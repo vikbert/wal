@@ -43,6 +43,8 @@
             window.location.reload();
         }
     }
+
+    $: names = shuffle(names)
 </script>
 
 <div class="wrapper" style="display: {isPopupOpened ? 'none' : 'block'}">
