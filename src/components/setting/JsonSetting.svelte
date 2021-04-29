@@ -1,7 +1,7 @@
 <script>
     let avatar, fileInputRef;
-    import memo from '../services/memo'
-    import {KEY_CONFIG, KEY_MEMBERS} from '../services/store'
+    import memo from '../../services/memo'
+    import {KEY_CONFIG, KEY_MEMBERS} from '../../services/store'
 
     const handleOnChange = (event) => {
         const reader = new FileReader();

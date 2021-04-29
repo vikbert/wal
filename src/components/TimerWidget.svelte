@@ -1,8 +1,8 @@
 <script>
     import classNames from 'classnames';
-    import {config, paused} from './services/store';
-    import {getDay} from './services/date'
-    import speak from './services/voice';
+    import {config, paused} from '../services/store';
+    import {getDay} from '../services/date';
+    import speak from '../services/voice';
 
     let time = 0;
     let timerMax = 15;

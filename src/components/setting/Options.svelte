@@ -1,5 +1,5 @@
 <script>
-import AudioSwitch from "../components/AudioSwitch.svelte";
+import AudioSwitch from "./AudioSwitch.svelte";
 
 import Export from "./Export.svelte";
 import GitHub from "./GitHub.svelte";

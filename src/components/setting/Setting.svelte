@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {opened, config} from '../services/store'
+    import {opened, config} from '../../services/store'
     import Members from './Members.svelte';
     import Options from './Options.svelte';
     import PopupToggle from './PopupToggle.svelte';

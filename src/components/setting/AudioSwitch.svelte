@@ -1,5 +1,5 @@
 <script>
-    import {config} from '../services/store';
+    import {config} from '../../services/store';
     export let size = 30;
 
     let appConfig;

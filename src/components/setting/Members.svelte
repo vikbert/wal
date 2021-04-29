@@ -1,6 +1,6 @@
 <script lang="ts">
     import classNames from 'classnames'
-    import {members, opened} from '../services/store'
+    import {members, opened} from '../../services/store'
 
     let items = [];
     let newName = '';

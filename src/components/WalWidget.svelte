@@ -1,8 +1,8 @@
 <script lang="ts">
     import classNames from 'classnames'
-    import {shuffle} from './services/array'
-    import {paused, members, opened, config} from "./services/store";
-    import speak from './services/voice';
+    import {shuffle} from '../services/array'
+    import {paused, members, opened, config} from "../services/store";
+    import speak from '../services/voice';
 
     let current: string = '⇡'
     let showName: boolean = false;

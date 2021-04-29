@@ -1,6 +1,6 @@
 <script>
     let fileInputRef;
-    import {KEY_CONFIG, KEY_MEMBERS} from '../services/store'
+    import {KEY_CONFIG, KEY_MEMBERS} from '../../services/store'
 
     const downloadFile = async () => {
         const walConfigData = {

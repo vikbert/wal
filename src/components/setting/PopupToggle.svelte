@@ -1,6 +1,6 @@
 <script>
-    import {opened} from '../services/store';
-    import AudioSwitch from '../components/AudioSwitch.svelte';
+    import {opened} from '../../services/store';
+    import AudioSwitch from './AudioSwitch.svelte';
 
     let isOpen = false;
     opened.subscribe((value) => {

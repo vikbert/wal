@@ -1,6 +1,6 @@
 <script>
 let fileInputRef;
-import memo from '../services/memo'
+import memo from '../../services/memo'
 
 const handleOnChange = (event) => {
     const reader = new FileReader();

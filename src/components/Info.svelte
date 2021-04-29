@@ -1,6 +1,6 @@
 <div class="info">
-  <h1 class="opacity-75">WHO is the NEXT ?</h1>
-  <h2 class="opacity-25">Now let's randomize the Names</h2>
+    <h1 class="opacity-75">WHO is the NEXT ?</h1>
+    <h2 class="opacity-25">Now let's randomize the Names</h2>
 </div>
 
 <style>
@@ -8,11 +8,13 @@
     text-align: center;
     color: white;
   }
+
   h1 {
     padding: 0;
     margin: 0;
     font-size: 40px;
   }
+
   h2 {
     margin: 0;
   }
