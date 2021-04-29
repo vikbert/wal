@@ -2,6 +2,7 @@
 import AudioSwitch from "../components/AudioSwitch.svelte";
 
 import Export from "./Export.svelte";
+import GitHub from "./GitHub.svelte";
 import Import from "./Import.svelte";
 import Limit from "./Limit.svelte";
 </script>
@@ -22,6 +23,10 @@ import Limit from "./Limit.svelte";
     <div class="option">
         <Limit/>
         <div class="option-title">Timer</div>
+    </div>
+    <div class="option">
+        <GitHub repository='vikbert/wal'/>
+        <div class="option-title">Code</div>
     </div>
 </div>
 <style>
