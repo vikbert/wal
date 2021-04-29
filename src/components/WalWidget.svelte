@@ -69,8 +69,8 @@
             {#each names as item}
                 <div class="widget_dropdown_item">{item}</div>
             {/each}
-            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
         </div>
+        <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
     </div>
 </div>
 
@@ -116,7 +116,7 @@
   .widget_dropdown_clip {
     position: absolute;
     width: 200px;
-    right: -94px;
+    right: -35px;
     bottom: 45px;
   }
 
