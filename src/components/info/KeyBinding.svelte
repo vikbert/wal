@@ -1,14 +1,14 @@
 <div class="key-binding-container">
     <div class="key-binding">
-        <div class="info">To randomize the name</div>
+        <div class="info">Next Name</div>
         <div class="key__button">N</div>
     </div>
     <div class="key-binding">
-        <div class="info">To open setting view</div>
+        <div class="info">Open Setting</div>
         <div class="key__button">S</div>
     </div>
     <div class="key-binding">
-        <div class="info">To close setting view</div>
+        <div class="info">Quit Settings</div>
         <div class="key__button">Q</div>
     </div>
 </div>
