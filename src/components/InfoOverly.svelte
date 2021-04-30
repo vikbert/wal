@@ -26,9 +26,7 @@
                 </div>
             </div>
             <div class="content">
-                <Logo/>
-                <h3 class="opacity-50">can help you in the <span class="lobster opacity-100">daily meeting</span>:</h3>
-
+                <div class="wal">🐳</div>
                 <h1>🤹🏻 Randomize the participant</h1>
                 <h1>‍⏱ 15" Timer with alerting </h1>
 
@@ -44,6 +42,11 @@
 {/if}
 
 <style>
+  .wal {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+  }
   .overlay {
     display: flex;
     justify-content: center;
