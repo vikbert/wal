@@ -9,9 +9,7 @@
 
 <div class="main">
     <Setting/>
-    <div class="logo-container">
-        <Logo/>
-    </div>
+    <Logo/>
     <TimerWidget/>
     <WalWidget/>
     <Info/>
@@ -21,11 +19,5 @@
 <style>
   .main {
     height: 100%;
-  }
-
-  .logo-container {
-    position: absolute;
-    top: 0px;
-    left: 10px;
   }
 </style>

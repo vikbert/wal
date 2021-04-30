@@ -4,13 +4,21 @@
     }
 </script>
 
-<a href="/#" on:click={newLoad}>
-    <div class="logo">
-        <span>W<span>{'🐳'}</span><span class="opacity-50">h</span><span>l</span>
-        <div class="version">v1.1.0</div>
-    </div>
-</a>
+<div class="logo-container">
+    <a href="/#" on:click={newLoad}>
+        <div class="logo">
+            <span>W{'🐳'}</span><span class="opacity-50">h</span><span>l</span>
+            <div class="version">v1.2.0</div>
+        </div>
+    </a>
+</div>
 <style>
+  .logo-container {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
+
   .logo {
     font-size: 45px;
     font-family: 'Bowlby One', cursive;
