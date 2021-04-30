@@ -5,7 +5,7 @@
     import speak from '../services/voice';
 
     let current: string = '⇡'
-    let showName: boolean = false;
+    let showName: boolean = true;
     let appConfig;
     config.subscribe((value) => {
         appConfig = value
@@ -26,16 +26,16 @@
             handleReset();
         }
 
-        // activate the timer
         paused.set(false);
         showName = false
 
-        names = shuffle(names)
-        current = names.pop()
-        speak(current, appConfig.timerAudio)
         setTimeout(() => {
+            // activate the timer
+            names = shuffle(names)
+            current = names.shift()
+            speak(current, appConfig.timerAudio)
             showName = true
-        }, 1000);
+        }, 300);
     }
 
     const handleReset = () => {
@@ -57,7 +57,7 @@
             <div class="widget-body">
                 {#if showName}
                     <div class="title tracking-in-expand">
-                        <div>{current.length !== 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
+                        <div>{current.length > 1 && names.length === 0 ? '🎉 ' + current + ' 🎉' : current}</div>
                     </div>
                 {:else}
                     {'... shuffling ...'}
