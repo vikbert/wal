@@ -1,6 +1,5 @@
 <script>
-    import Logo from './Logo.svelte';
-    import {config} from '../services/store';
+    import {config} from '../../services/store';
 
     let appConfig;
     config.subscribe((value) => {
@@ -47,6 +46,7 @@
     text-align: center;
     font-size: 5rem;
   }
+
   .overlay {
     display: flex;
     justify-content: center;
@@ -88,9 +88,4 @@
     color: white;
     font-size: 1.2rem;
   }
-
-  .lobster {
-    font-family: 'Lobster', cursive;
-  }
-
 </style>

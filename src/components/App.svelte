@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Info from './Info.svelte'
-    import InfoOverly from './InfoOverly.svelte';
+    import InfoOverly from './info/InfoOverly.svelte';
+    import KeyBinding from './info/KeyBinding.svelte';
     import Logo from './Logo.svelte';
     import Setting from './setting/Setting.svelte';
     import TimerWidget from './TimerWidget.svelte';
@@ -12,12 +12,6 @@
     <Logo/>
     <TimerWidget/>
     <WalWidget/>
-    <Info/>
     <InfoOverly/>
+    <KeyBinding/>
 </div>
-
-<style>
-  .main {
-    height: 100%;
-  }
-</style>

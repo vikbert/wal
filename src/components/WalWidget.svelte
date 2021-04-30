@@ -44,8 +44,24 @@
         }
     }
 
+    let key: string;
+    const handleKeyUp = (event) => {
+        key = event.key;
+        console.log(key);
+
+        if (key === 'n') {
+            handleRandom()
+        } else if (key === 's') {
+            opened.set(true);
+        } else if (key === 'q' || key === 'Escape') {
+            opened.set(false);
+        }
+    }
+
     $: names = shuffle(names)
 </script>
+
+<svelte:window on:keyup={handleKeyUp}/>
 
 <div class="wrapper" style="display: {isPopupOpened ? 'none' : 'block'}">
     <div class="wal_widget">
@@ -71,6 +87,10 @@
             {/each}
         </div>
         <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
+    </div>
+    <div class="info">
+        <h1 class="opacity-75">WHO is the NEXT ?</h1>
+        <h2 class="opacity-25">Now let's randomize the Names</h2>
     </div>
 </div>
 
@@ -161,5 +181,20 @@
     -webkit-box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
     -moz-box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
     box-shadow: -2px 9px 21px -8px rgba(13, 114, 146, 0.73);
+  }
+
+  .info {
+    text-align: center;
+    color: white;
+  }
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 40px;
+  }
+
+  h2 {
+    margin: 0;
   }
 </style>
