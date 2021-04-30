@@ -1,15 +1,17 @@
 <script lang="ts">
-    export let repository: string = "";
+    import Tooltip from "../shared/Tooltip.svelte";
+
+    export let repository: string = "Tooltip";
 </script>
 
 <a href={`http://github.com/${repository}`} target="_blank">
-    <div>
+    <Tooltip text="Open the repository page on GitHub">
         <span class="iconify" data-icon="bytesize:github" width="50"></span>
-    </div>
+    </Tooltip>
 </a>
 
 <style>
-    a {
-        color: inherit;
-    }
+  a {
+    color: inherit;
+  }
 </style>

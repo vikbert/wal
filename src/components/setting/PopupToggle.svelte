@@ -1,6 +1,5 @@
 <script>
     import {opened} from '../../services/store';
-    import AudioSwitch from './AudioSwitch.svelte';
 
     let isOpen = false;
     opened.subscribe((value) => {
@@ -24,14 +23,6 @@
         </div>
     {/if}
 </div>
-
-{#if !isOpen}
-    <div class="audio_toggle_icon">
-        <div class="dock">
-            <AudioSwitch size={17}/>
-        </div>
-    </div>
-{/if}
 
 <style>
   .popup_toggle_icon {

@@ -1,27 +1,30 @@
 <script>
-let fileInputRef;
-import memo from '../../services/memo'
+    import Tooltip from '../shared/Tooltip.svelte';
 
-const handleOnChange = (event) => {
-    const reader = new FileReader();
-    reader.readAsText(event.target.files[0]);
-    reader.onload = onReaderLoad;
-};
+    let fileInputRef;
+    import memo from '../../services/memo';
 
-const onReaderLoad = (event) => {
-    const json = JSON.parse(event.target.result);
-    Object.keys(json).map((key) => {
-        memo.set(key, json[key]);
-    });
+    const handleOnChange = (event) => {
+        const reader = new FileReader();
+        reader.readAsText(event.target.files[0]);
+        reader.onload = onReaderLoad;
+    };
 
-    window.location.reload();
-};
+    const onReaderLoad = (event) => {
+        const json = JSON.parse(event.target.result);
+        Object.keys(json).map((key) => {
+            memo.set(key, json[key]);
+        });
 
+        window.location.reload();
+    };
 
 </script>
 
 <div on:click={()=>{fileInputRef.click()}}>
-    <span class="iconify" data-icon="entypo:upload" width="50"></span>
+    <Tooltip text="Import the setting from a JSON file">
+        <span class="iconify" data-icon="entypo:upload" width="50"></span>
+    </Tooltip>
 </div>
 <input
     class="upload"

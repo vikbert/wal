@@ -34,7 +34,7 @@ import Limit from "./Limit.svelte";
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 20px;
-        padding: 0 20px 20px 20px;
+        padding: 20px;
     }
     .option {
         height: 150px;
