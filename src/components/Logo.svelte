@@ -8,7 +8,7 @@
     <a href="/#" on:click={newLoad}>
         <div class="logo">
             <span>W{'🐳'}</span><span class="opacity-50">h</span><span>l</span>
-            <div class="version">v1.4.0</div>
+            <div class="version">v1.5.0</div>
         </div>
     </a>
 </div>
@@ -20,7 +20,7 @@
   }
 
   .logo {
-    font-size: 45px;
+    font-size: 35px;
     font-family: 'Bowlby One', cursive;
     position: relative;
   }

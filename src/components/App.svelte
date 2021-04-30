@@ -1,4 +1,5 @@
 <script lang="ts">
+    import WaveFooter from './WaveFooter.svelte';
     import InfoOverly from './info/InfoOverly.svelte';
     import KeyBinding from './info/KeyBinding.svelte';
     import Logo from './Logo.svelte';
@@ -14,4 +15,5 @@
     <WalWidget/>
     <InfoOverly/>
     <KeyBinding/>
+    <WaveFooter/>
 </div>

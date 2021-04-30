@@ -40,7 +40,7 @@
 
   .info {
     font-size: 1.4rem;
-    opacity: 20%;
+    opacity: 40%;
   }
 
   .key__button {
