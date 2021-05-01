@@ -20,9 +20,16 @@
   }
 
   .logo {
-    font-size: 35px;
+    font-size: 50px;
     font-family: 'Bowlby One', cursive;
     position: relative;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .logo {
+        font-size: 30px;
+        display: none;
+    }
   }
 
   .version {

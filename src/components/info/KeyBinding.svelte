@@ -1,7 +1,7 @@
 <div class="key-binding-container">
     <div class="key-binding">
-        <div class="info">Next Name</div>
-        <div class="key__button">N</div>
+        <div class="info">Randomize Name</div>
+        <div class="key__button">R</div>
     </div>
     <div class="key-binding">
         <div class="info">Open Setting</div>

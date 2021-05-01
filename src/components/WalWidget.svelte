@@ -34,8 +34,9 @@
             names = shuffle(names)
             current = names.shift()
             speak(current, appConfig.timerAudio)
+
             showName = true
-        }, 300);
+        }, 1000);
     }
 
     const handleReset = () => {
@@ -49,7 +50,7 @@
         key = event.key;
         console.log(key);
 
-        if (key === 'n') {
+        if (key === 'r') {
             handleRandom()
         } else if (key === 's') {
             opened.set(true);
@@ -85,8 +86,9 @@
             {#each names as item}
                 <div class="widget_dropdown_item">{item}</div>
             {/each}
+            <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
         </div>
-        <img class={classNames({"widget_dropdown_clip": true, "rotate-in-center": !showName})} src="images/clip-2.png" alt="clip">
+
     </div>
     <div class="info">
         <h1 class="opacity-75">WHO is the NEXT ?</h1>
@@ -134,9 +136,10 @@
   }
 
   .widget_dropdown_clip {
+    transition: 3s;
     position: absolute;
     width: 200px;
-    right: -35px;
+    right: -100px;
     bottom: 45px;
   }
 
