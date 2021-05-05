@@ -1,10 +1,11 @@
 <div class="key-binding-container">
+    <p>Use Hotkey </p>
     <div class="key-binding">
-        <div class="info">Randomize Name</div>
+        <div class="info">Randomize Names</div>
         <div class="key__button">R</div>
     </div>
     <div class="key-binding">
-        <div class="info">Open Setting</div>
+        <div class="info">Open Settings</div>
         <div class="key__button">S</div>
     </div>
     <div class="key-binding">
@@ -14,12 +15,16 @@
 </div>
 
 <style>
+    p {
+        text-align: right;
+    }
   .key-binding-container {
     position: absolute;
     bottom: 40px;
     right: 30px;
     display: flex;
     flex-direction: column;
+    color: white;
   }
 
   @media screen and (max-width: 1280px) {
@@ -34,7 +39,6 @@
     align-items: center;
     grid-gap: 20px;
     margin: 20px;
-    color: white;
     text-align: right;
   }
 

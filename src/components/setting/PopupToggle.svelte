@@ -31,10 +31,4 @@
     z-index: 9999;
     top: 10px;
   }
-  .audio_toggle_icon {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    opacity: 50%;
-  }
 </style>
