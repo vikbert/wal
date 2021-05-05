@@ -40,7 +40,7 @@
     }
 
     const handleReset = () => {
-        if (window.confirm("🐳 Do you really want to restart?")) {
+        if (window.confirm("🐳 Do you really want to restart? or ⚠️ maybe you should add some participants to your meeting")) {
             window.location.reload();
         }
     }
@@ -48,13 +48,18 @@
     let key: string;
     const handleKeyUp = (event) => {
         key = event.key;
-        console.log(key);
 
-        if (key === 'r') {
+        if (!isPopupOpened && key === 'r') {
             handleRandom()
-        } else if (key === 's') {
+            return;
+        }
+
+        if (!isPopupOpened && key === 's') {
             opened.set(true);
-        } else if (key === 'q' || key === 'Escape') {
+            return;
+        }
+
+        if (key === 'Escape') {
             opened.set(false);
         }
     }

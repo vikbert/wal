@@ -1,5 +1,5 @@
 <div class="key-binding-container">
-    <p>Use Hotkey </p>
+    <p>Use Hotkey ✨</p>
     <div class="key-binding">
         <div class="info">Randomize Names</div>
         <div class="key__button">R</div>
@@ -10,7 +10,7 @@
     </div>
     <div class="key-binding">
         <div class="info">Quit Settings</div>
-        <div class="key__button">Q</div>
+        <div class="key__button">Esc</div>
     </div>
 </div>
 
