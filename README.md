@@ -24,18 +24,18 @@
 Wa(h)l is a german word(engl: decision).
 > DUDEN: Möglichkeit der Entscheidung; das Sichtentscheiden
 
-If we remove this character "h", and it becomes another word "engl: whale" that is the most favorite animal of my son. The two words have almost the same pronunciation in German. At least, it sounds similar to me who speak German as the seconds foreign language. 😀
+If we remove the character "h", and it becomes another word "engl: whale". It is the most favorite animal of my sohn. These two words have almost the same pronunciation in German. At least, it sounds similar for me, who speaks German as the second foreign language. 😀
 
 
 # ✨ Background
-I build this application in the context of [#100DaysOfCode](https://www.100daysofcode.com/).
+I built this application in the context of [#100DaysOfCode](https://www.100daysofcode.com/).
 
 The idea of this application is inspired by someone's kindly suggestion during the scrum daily meeting, as we didn't know who is going to talk as next.
 
 # ✅ Feature of app
 - randomize the participants 
 - text to speech
-- a timer for the meeting: default 15" for a normal daily standup
+- a timer for the meeting: default 15" for a normal scrum daily
 - manage the participants for the meeting
 
 ![](./public/images/wal0.png)
