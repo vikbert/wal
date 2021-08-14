@@ -24,9 +24,7 @@
 Wa(h)l is a german word(engl: decision).
 > DUDEN: Möglichkeit der Entscheidung; das Sichtentscheiden
 
-If we remove this character "h", and it becomes another word "engl: whale" that is the most favorite animal of my son.
-
-The two words have almost the same pronunciation in German. At least, it sounds similar to me who speak German as the seconds foreign language. 😀
+If we remove this character "h", and it becomes another word "engl: whale" that is the most favorite animal of my son. The two words have almost the same pronunciation in German. At least, it sounds similar to me who speak German as the seconds foreign language. 😀
 
 
 # ✨ Background
