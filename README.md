@@ -40,6 +40,11 @@ The idea of this application is inspired by someone's kindly suggestion during t
 - a timer for the meeting: default 15" for a normal daily standup
 - manage the participants for the meeting
 
+![](./public/images/wal0.png)
+![](./public/images/wal1.png)
+![](./public/images/wal2.png)
+![](./public/images/wal3.png)
+
 # 🚀 Getting started
 ```bash
 npx degit vikbert/sests svelte-app
