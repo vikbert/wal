@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/images/logo.png" width="200" alt="wal" />
+  <img src="./public/images/wal.jpg" width="200" alt="wal" />
   <h3>Wahl: a minimal randomizer for scrum daily standup</h3>
   <p>
     <a href="#">
@@ -19,7 +19,7 @@
 
 ---
 
-# 🐳 What ist Wa(h)l?
+# What ist Wa(h)l?
 
 Wa(h)l is a german word(engl: decision).
 > DUDEN: Möglichkeit der Entscheidung; das Sichtentscheiden
