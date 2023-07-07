@@ -64,10 +64,6 @@ npm run dev
 ### Start tests
 ```bash
 npm run test 
-```
-
-# Todo:
-- add projects and order the participants by projects
 
 # licence
 
