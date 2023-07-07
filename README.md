@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/images/wal.jpg" width="200" alt="wal" />
+  <img src="./public/images/wal.jpg" width="400" alt="wal" />
   <h3>Wahl: a minimal randomizer for scrum daily standup</h3>
   <p>
     <a href="#">
